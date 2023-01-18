@@ -13,6 +13,21 @@
                     <p>{{ $project->description }}</p>
                 </div>
                 <p class="mt-3">{{ $project->content }}</p>
+
+                @if ($project->technologies)
+                    <div class="mt-3">
+                        <h6>Technologies:</h6>
+                        <ul>
+                            @foreach ($project->technologies as $tech)
+                                <li>
+                                    {{ $tech->name }}
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <p>{{ $project->description }}</p>
+
                 <figure class="mt-4">
                     @if ($project->cover_image)
                         <img src="{{ asset('storage/' . $project->cover_image) }}" style="max-width: 500px">
@@ -24,5 +39,6 @@
                 </figure>
             </div>
         </div>
+    </div>
     </div>
 @endsection
