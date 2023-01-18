@@ -62,6 +62,20 @@
                 </div>
                 {{-- / TYPES --}}
 
+                {{-- TECHNOLOGIES CHECKBOX --}}
+                <div class="form-group col-8 row mb-2">
+                    @foreach ($technologies as $technology)
+                        <div class="col-2">
+                            <label for="technology-{{ $technology->id }}">
+                                {{ $technology->name }}
+                            </label>
+                            <input type="checkbox" value="{{ $technology->id }}" name="technologies[]"
+                                id="technology-{{ $technology->id }}" @checked($project->technologies->contains($technology))>
+                        </div>
+                    @endforeach
+                </div>
+                {{-- TECHNOLOGIES CHECKBOX --}}
+
                 {{-- IMG --}}
                 <div class="col-8 row form-group mt-2">
                     <div class="col-2">
